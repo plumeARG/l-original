@@ -1,0 +1,15 @@
+[ANALYSTE] Premier relevé :
+Fragments reliés à l'entrée : 4
+Fragments lisibles : 3
+Fragments confirmés par deux sources : 3
+Source d'origine : absente
+
+[SCEPTIQUE] Second relevé :
+Fragments reliés à l'entrée : 3
+Fragments lisibles : 3
+Fragments confirmés par deux sources : 3
+Source d'origine : absente
+
+Remarque :
+Le premier relevé compte une trace isolée
+comme si elle était un fragment complet.

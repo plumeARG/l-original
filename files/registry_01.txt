@@ -1,0 +1,33 @@
+Nulle alerte n'a précédé la restauration.
+On n'a trouvé aucune requête dans la file.
+Il manque pourtant une référence au registre.
+Rien ne correspond à l'empreinte conservée.
+
+NOTE DU SYSTÈME :
+La première lettre de chaque ligne porte encore
+une marque d'intégrité.
+
+analyst_report_A.txt
+[COPIE] Je n'ai jamais vu cette entrée auparavant.
+Elle n'appartient à aucune de mes notes habituelles.
+J'ai demandé aux autres de vérifier les registres.
+Je ne sais pas qui a laissé cette trace.
+Je l'appelle « l'Original », pour l'instant.
+Je ne sais même pas si ce terme est correct.
+
+review_report_B.txt
+[ANALYSTE] Premier relevé :
+Fragments reliés à l'entrée : 4
+Fragments lisibles : 3
+Fragments confirmés par deux sources : 3
+Source d'origine : absente
+
+[SCEPTIQUE] Second relevé :
+Fragments reliés à l'entrée : 3
+Fragments lisibles : 3
+Fragments confirmés par deux sources : 3
+Source d'origine : absente
+
+Remarque :
+Le premier relevé compte une trace isolée
+comme si elle était un fragment complet.

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVE // INSTANCE INCONNUE</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="login-overlay" class="login-overlay">
+    <div class="login-panel">
+      <p class="eyebrow">ACCES ARCHIVE / AUTHENTIFICATION</p>
+      <h2>CONNEXION SÉCURISÉE</h2>
+
+      <form id="login-form" class="login-form">
+        <label for="login-user">UTILISATEUR</label>
+        <input id="login-user" type="text" value="ARCHIVE_OP" autocomplete="username">
+
+        <label for="login-password">MOT DE PASSE</label>
+        <input id="login-password" type="password" placeholder="Saisir le mot de passe" autocomplete="current-password">
+
+        <button class="button" type="submit">ACCÉDER À L’ARCHIVE</button>
+      </form>
+
+      <p id="login-message" class="login-message">Accès restreint aux opérateurs autorisés.</p>
+    </div>
+  </div>
+
+  <div id="app-shell" class="app-shell hidden">
+    <header class="topbar">
+      <a href="index.html" class="logo">ARCHIVE<span>//</span>INCONNUE</a>
+      <span class="status"><i></i> SESSION INSTABLE</span>
+    </header>
+
+    <main class="container">
+    <div class="archive-grid">
+      <section class="story-block">
+        <p class="eyebrow">SYSTÈME D'ARCHIVAGE / INSTANCE NON IDENTIFIÉE</p>
+
+        <h1>Une donnée n'aurait<br>pas dû <em>réapparaître.</em></h1>
+
+        <p class="intro">
+          Une ancienne entrée vient d'être restaurée dans les archives.
+          Aucune requête connue ne correspond à cette récupération.
+        </p>
+
+        <div class="meta-line">
+          <span>BRUIT DE FOND : 73%</span>
+          <span>ÉTAT : INSTABLE</span>
+        </div>
+      </section>
+
+      <aside class="panel side-panel">
+        <p class="eyebrow">ÉVIDENCE</p>
+        <ul class="evidence-list">
+          <li><a href="files/registry_01.txt">Registre principal</a></li>
+          <li><a href="files/copy_note.txt">Note récupérée</a></li>
+          <li><a href="files/analyst_report_A.txt">Rapport de la copie</a></li>
+          <li><a href="files/review_report_B.txt">Second relevé</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="panel archive-interface">
+      <div class="panel-heading">
+        <span>JOURNAUX / PREUVES</span>
+        <span>ARCHIVE RESTAURÉE</span>
+      </div>
+
+      <div class="archive-layout">
+        <div class="document-panel">
+          <p class="eyebrow">JOURNAUX</p>
+          <div class="journal-list">
+            <button class="journal-item active" type="button" data-doc="registry">
+              <span class="tag">REG_01</span>
+              <strong>Registre principal</strong>
+              <small>Dernière entrée restaurée</small>
+            </button>
+            <button class="journal-item" type="button" data-doc="copy">
+              <span class="tag">A_01</span>
+              <strong>Rapport de la copie</strong>
+              <small>Premier signal d’origine</small>
+            </button>
+            <button class="journal-item" type="button" data-doc="review">
+              <span class="tag">B_02</span>
+              <strong>Relevé d’analyse</strong>
+              <small>Comparaison des deux sources</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="document-panel evidence-panel">
+          <p class="eyebrow">PREUVES</p>
+          <div id="journal-viewer" class="journal-viewer" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <span>TERMINAL_00</span>
+        <span>LECTURE SEULE</span>
+      </div>
+
+      <div id="terminal">
+        <p>[SYS] Connexion à l'archive locale...</p>
+        <p>[WARN] Référence source introuvable.</p>
+        <p>[REC] Une entrée attend une vérification.</p>
+      </div>
+
+      <p class="prompt">&gt; <span class="cursor">_</span></p>
+    </section>
+
+    <section class="panel mission-panel">
+      <p class="eyebrow">TÂCHE EN COURS</p>
+      <h2>Vérifier le registre restauré</h2>
+      <p>
+        Une trace inconnue a été retrouvée. Consulte les journaux et cherche ce que le système a manqué.
+      </p>
+      <div class="mission-actions">
+        <a class="button" href="files/registry_01.txt">Ouvrir le registre ↗</a>
+        <button class="button ghost" id="hint-button" type="button">Afficher un indice</button>
+      </div>
+    </section>
+
+    <section class="panel system-panel">
+      <div class="panel-heading">
+        <span>SURVEILLANCE / LOGS</span>
+        <span>TRACE SYSTÈME</span>
+      </div>
+
+      <div class="system-grid">
+        <div>
+          <p class="eyebrow">ÉTAT DU SYSTÈME</p>
+          <ul class="status-list">
+            <li><span>SCAN_IO</span><strong>INACTIF</strong></li>
+            <li><span>ARCHIVE_02</span><strong>RÉCUPÉRÉE</strong></li>
+            <li><span>COUCHE_CACHEE</span><strong>NON INDEXÉE</strong></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="eyebrow">JOURNAL D’ACCÈS</p>
+          <div id="access-log" class="access-log">
+            <p>[SYS] Analyse des métadonnées de récupération...</p>
+            <p>[ERR] Référence “l’Original” détectée hors du registre principal.</p>
+          </div>
+          <button class="button ghost" id="security-check" type="button">Activer le contrôle système</button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="navigation">
+      <a href="files/registry_01.txt">01 / Registre</a>
+      <a href="files/copy_note.txt">02 / Note récupérée</a>
+      <a href="#recovery">03 / Récupération</a>
+    </nav>
+
+    <section class="panel" id="recovery">
+      <p class="eyebrow">CONSOLE DE RÉCUPÉRATION</p>
+      <h2>Entrer une clé</h2>
+
+      <form id="key-form">
+        <label for="key-input">CLÉ DÉDUITE DES ARCHIVES</label>
+        <div class="input-row">
+          <input
+            id="key-input"
+            type="text"
+            placeholder="Saisir une clé..."
+            autocomplete="off"
+            required
+          >
+          <button class="button" type="submit">Vérifier</button>
+        </div>
+      </form>
+
+      <p id="feedback" aria-live="polite">
+        En attente d'une entrée.
+      </p>
+      <div id="unlocked"></div>
+    </section>
+
+      <footer>
+        AVERTISSEMENT : les horodatages peuvent être inexacts.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
