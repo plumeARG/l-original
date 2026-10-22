@@ -1,23 +1,24 @@
-
 # Archive inconnue
 
-ARG statique immersive inspirée d’une archive système instable, avec accès protégé, journaux, preuves, clé de restauration et couche cachée.
+Projet ARG statique immersif inspiré d’une archive système instable. Le site simule une interface de récupération de données, avec journaux, preuves, accès protégé et couches cachées.
 
-## Version actuelle
+## Présentation
 
-- écran d’authentification sécurisé
-- interface d’archive et de journaux
-- système de clés et indices
-- page finale + archive cachée
-- préparation pour publication GitHub Pages
+Le projet est structuré comme une petite expérience narrative interactive :
 
-## Structure principale
+- accès restreint avec faux écran d’authentification
+- terminal de lecture de logs
+- journaux et preuves à consulter
+- clé de restauration à déduire
+- page finale et archive cachée
 
-- [index.html](index.html) — page d’accueil et interface principale
-- [style.css](style.css) — design sombre de type archive / terminal
-- [script.js](script.js) — logique du jeu, indices, terminal et auth
-- [final.html](final.html) — page finale de restauration
-- [vault.html](vault.html) — archive profonde cachée
+## Structure du projet
+
+- [index.html](index.html) — page principale du jeu
+- [style.css](style.css) — design visuel de l’interface
+- [script.js](script.js) — logique des indices, console et validation des clés
+- [final.html](final.html) — écran final de restauration
+- [vault.html](vault.html) — archive cachée profonde
 - [404.html](404.html) — page d’erreur immersive
 - [files/registry_01.txt](files/registry_01.txt) — registre principal
 - [files/copy_note.txt](files/copy_note.txt) — note récupérée
@@ -27,17 +28,19 @@ ARG statique immersive inspirée d’une archive système instable, avec accès 
 
 ## Lancement local
 
-Ouvrez simplement [index.html](index.html) dans le navigateur, ou lancez un serveur local :
+Pour tester le projet localement :
 
 python3 -m http.server 8080
 
-Puis ouvrez : http://localhost:8080
+Puis ouvrir :
 
-## Accès de démonstration
+http://localhost:8080
+
+## Identifiants de démonstration
 
 - utilisateur : ARCHIVE_OP
 - mot de passe : PLUME
 
-## Publication publique
+## Notes
 
-Le site est prêt pour GitHub Pages en mode statique via la branche principale.
+Le projet est pensé pour être complètement statique, sans base de données ni backend. Il est donc facile à déployer sur un hébergement de fichiers statiques comme GitHub Pages, Netlify ou un simple serveur web.

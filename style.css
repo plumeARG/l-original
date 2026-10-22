@@ -291,14 +291,36 @@ h1 em {
   font-size: 1.1rem;
 }
 
+.viewer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.viewer-actions a {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.viewer-status {
+  color: var(--green);
+}
+
 .viewer-body {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   color: #dfeee2;
 }
 
 .viewer-body p {
   margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
 }
 
 .viewer-body strong {

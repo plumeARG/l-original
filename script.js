@@ -14,10 +14,19 @@ const loginMessage = document.querySelector("#login-message");
 const loginOverlay = document.querySelector("#login-overlay");
 const appShell = document.querySelector("#app-shell");
 
+const normalizeText = (value = "") =>
+  String(value)
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/\u00A0/g, " ")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .trim();
+
 const journalDocs = {
   registry: {
     title: "Registre principal",
     code: "REG_01",
+    file: "files/registry_01.txt",
     summary: "Dernière entrée restaurée dans le système principal.",
     content: [
       "Nulle alerte n’a précédé la restauration.",
@@ -28,20 +37,21 @@ const journalDocs = {
     ]
   },
   copy: {
-    title: "Rapport de la copie",
+    title: "Note récupérée",
     code: "A_01",
+    file: "files/copy_note.txt",
     summary: "Premier signal identifiant la source probable.",
     content: [
-      "[COPIE] Je n’ai jamais vu cette entrée auparavant.",
-      "Elle n’appartient à aucune de mes notes habituelles.",
-      "J’ai demandé aux autres de vérifier les registres.",
-      "Je ne sais pas qui a laissé cette trace.",
-      "Je l’appelle ‘l’Original’, pour l’instant."
+      "L’archive a conservé une référence partielle.",
+      "La dernière écriture n’est pas une commande connue.",
+      "Les autres entrées restent stables, mais l’Original semble avoir été nommé sans autorisation.",
+      "Les fragments sont présents dans les journaux, mais le mot complet ne peut être reconstitué."
     ]
   },
   review: {
-    title: "Relevé d’analyse",
+    title: "Second relevé",
     code: "B_02",
+    file: "files/review_report_B.txt",
     summary: "Comparaison des sources et contradiction sur le fragment isolé.",
     content: [
       "[ANALYSTE] Premier relevé :",
@@ -53,20 +63,39 @@ const journalDocs = {
   }
 };
 
-const renderDocument = (docId) => {
+const renderDocument = async (docId) => {
   if (!viewer) return;
 
   const doc = journalDocs[docId];
   if (!doc) return;
+
+  let lines = (doc.content || []).map((line) => normalizeText(line)).filter(Boolean);
+
+  try {
+    const response = await fetch(doc.file, { cache: "no-store" });
+    if (response.ok) {
+      const text = await response.text();
+      lines = text
+        .split(/\r?\n/)
+        .map((line) => normalizeText(line))
+        .filter((line) => line.length > 0);
+    }
+  } catch (error) {
+    console.warn("Lecture du fichier d’évidence impossible :", error);
+  }
 
   viewer.innerHTML = `
     <div class="viewer-header">
       <span class="tag">${doc.code}</span>
       <h3>${doc.title}</h3>
     </div>
+    <div class="viewer-actions">
+      <span class="viewer-status">Fichier de preuve</span>
+      <a href="${doc.file}" target="_blank" rel="noreferrer">Ouvrir le fichier</a>
+    </div>
     <div class="viewer-body">
       <p><strong>Résumé :</strong> ${doc.summary}</p>
-      ${doc.content.map((line) => `<p>${line}</p>`).join("")}
+      ${lines.map((line) => `<p>${line}</p>`).join("")}
     </div>
   `;
 };
